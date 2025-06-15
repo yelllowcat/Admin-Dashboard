@@ -2,15 +2,18 @@
   box-sizing: border-box;
 }
 html, body {
-  height: 100%;
+  height: 100vh;
+    width: 100vw;
   margin: 0;
   padding: 0;
   background-color: slategrey;
 }
 
 .container {
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
+    overflow: hidden; /* prevent accidental overflow */
+
 }
 
 ul{
@@ -24,7 +27,7 @@ li{
 }
 aside{
     background-color: rgb(0, 174, 255);
-    height: 100%;
+    height: 100vh;
     color: aliceblue;
     display: grid;
     padding: 10px;
@@ -32,11 +35,23 @@ aside{
   grid-column-end: 2;
    grid-row-start: 1;
   grid-row-end: 3; 
-    
+  justify-content: center;
+}
+aside li{
+
+    display: flex;
+  align-items: center;
+    margin: 30px;
+font-size: 30px;
+gap: 15px;
+font-weight: bolder;
+}
+aside svg{
+      fill: #ffffff;
 }
 .container{
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 5fr;
     grid-template-rows: 1fr 3fr;
 
 }
@@ -44,6 +59,7 @@ aside{
     margin: 0;
 }
 header{
+        box-sizing: border-box;
     grid-column-start: 2;
   grid-column-end: 3;
 grid-row-start: 1;
@@ -56,6 +72,7 @@ grid-row-start: 1;
 
 }
 main{
+    box-sizing: border-box;
     grid-column-start: 2;
   grid-column-end: 3;
    grid-row-start: 2;
@@ -63,16 +80,17 @@ main{
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 0.1fr 1fr 1fr 1fr;
+    height: 70vh;
 
 }
 svg{
-    width: 2.2rem;
-    height: 2.2rem;
+    width: 2.5rem;
+    height: 2.5rem;
     
 }
  .cat2{
-    width: 3rem;
-    height: 3rem;
+    width: 5rem;
+    height: 5rem;
 }
 .searchBar{
    display: flex;
@@ -80,6 +98,7 @@ svg{
     margin: 2vh;
 }
 input{
+    width: 20vw;
     height: 2rem;
     border-radius: 5px;    
 }
@@ -91,27 +110,30 @@ input{
     margin-top: 2vh;
 }
 p{
+    font-weight: bold;
     font-size: 2rem;
     margin: 0;
     padding: 0;
+    text-wrap: nowrap;
 }
 .user{
     display: flex;
 }
 button{
-    position: relative;
-    left: 10vh;
+   
     background-color: rgb(0, 174, 255);
     color: white;
     border: none;
     border-radius: 15px;
-
+    width: 7vw;
+    height: 5vh;
 }
 .nav2{
+    width: 30vw;
     display: grid;
-    grid-template-columns: 7vw 7vw 7vw;
-    grid-template-rows: 5vh 5vh 5vh;
-    gap: 3vw;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    
 }
 .proyects{
      grid-column-start: 1;
@@ -123,6 +145,7 @@ button{
     grid-template-rows: repeat(3, 1fr);
     gap: 15px;
     margin: 20px;
+    margin-top: 0;
     
 }
 .proyect{
@@ -138,16 +161,15 @@ button{
   grid-column-end: 3;
    grid-row-start: 2;
   grid-row-end: 3; 
-      margin: 20px;
 background-color: rgb(255, 255, 255);
     border-radius: 15px;
      display: grid;
     text-align: center;
+     height: 28vh;
+    width: 28vh;
+    justify-self: center;
 }
-.announ{
-padding-top: 10px;
 
-}
 .announ:not(:last-child){
 
     border-bottom: 1px solid black;
@@ -159,32 +181,110 @@ padding-top: 10px;
    grid-row-start: 3;
   grid-row-end: 4; 
 }
+.trending h2{
+    margin: 0;
+}
 .titleP{
     margin-left: 30px;
+    margin-bottom: 5px;
+    align-self: flex-end;
      grid-column-start: 1;
   grid-column-end: 2;
    grid-row-start: 1;
   grid-row-end: 1; 
+
 }
-.titleA{
+    .titleA{
+    justify-self: center;
     position: relative;
-    left: 2vh;
+    right: 3vw;
+    margin-bottom: 5px;
     grid-column-start: 2;
   grid-column-end: 3;
    grid-row-start: 1;
   grid-row-end: 1; 
 }
 .trending {
+    justify-self: center;
     display: grid;
     margin: 20px;
-
+    margin-top: 0;
 }
 
 .users{
     background-color: white;
     border-radius: 15px;
-    height: 15vh;
-    width: 26vw;
+    height: 28vh;
+    width: 28vh;
     display: grid;
+
     text-align: center;
+    justify-content: stretch;
+  
+
+}
+.users div{
+
+     display: flex;
+     justify-content: center;
+  align-items: center;
+  gap: 5px 10px;
+}
+.users svg{
+    height: 3rem;
+    width: 3rem;
+}
+.user-info{
+    display: flex;
+    flex-direction: column;
+}
+.user-info .username{
+align-self: start;
+
+}
+.users2:not(:last-child){
+
+    border-bottom: 1px solid black;
+
+}
+.announ h3{
+    margin: 0;
+    font-size: 20px;
+}
+.announ p{
+    margin: 10px;
+    margin-top: 0;
+    text-wrap: wrap;
+    text-justify: inter-auto;
+    font-size: 16px;
+    font-weight: 100;
+}
+.proyects p {
+    margin: 10px;
+    margin-top: 0;
+    text-wrap: wrap;
+    text-justify: inter-auto;
+    font-size: 18px;
+    font-weight: 100;
+}
+.buttons3{
+    display: flex;
+    justify-self:end;
+    margin-top: 3vh;
+    margin-right: 3vh;
+    gap: 3vh;
+}
+h1{
+    font-size: 3rem;
+}
+.dash{
+    display: flex;
+    justify-content: center;
+  align-items: start;
+  gap: 15px;
+}
+.dash svg{
+    height: 3.2rem;
+        width: 3.2rem;
+
 }
